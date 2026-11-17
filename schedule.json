@@ -125,29 +125,29 @@
     {
       "date": "2026-12-01",
       "type": "Video",
-      "doctor_id": "A",
-      "doctor_name": "周宏達",
+      "doctor_id": "B",
+      "doctor_name": "陳佩穎",
       "locked": false
     },
     {
       "date": "2026-12-02",
       "type": "Case & Clinical pearls",
-      "doctor_id": "G",
-      "doctor_name": "朱學彥",
+      "doctor_id": "E",
+      "doctor_name": "林睿彥",
       "locked": false
     },
     {
       "date": "2026-12-03",
       "type": "影像討論",
-      "doctor_id": "D",
-      "doctor_name": "潘立岩",
+      "doctor_id": "E",
+      "doctor_name": "林睿彥",
       "locked": false
     },
     {
       "date": "2026-12-08",
       "type": "Video",
-      "doctor_id": "B",
-      "doctor_name": "陳佩穎",
+      "doctor_id": "G",
+      "doctor_name": "朱學彥",
       "locked": false
     },
     {
@@ -188,8 +188,8 @@
     {
       "date": "2026-12-22",
       "type": "Video",
-      "doctor_id": "E",
-      "doctor_name": "林睿彥",
+      "doctor_id": "B",
+      "doctor_name": "陳佩穎",
       "locked": false
     },
     {
@@ -209,29 +209,29 @@
     {
       "date": "2027-01-05",
       "type": "Video",
-      "doctor_id": "A",
-      "doctor_name": "周宏達",
-      "locked": false
-    },
-    {
-      "date": "2027-01-06",
-      "type": "綜合大會",
-      "doctor_id": "G",
-      "doctor_name": "朱學彥",
-      "locked": false
-    },
-    {
-      "date": "2027-01-07",
-      "type": "影像討論",
       "doctor_id": "E",
       "doctor_name": "林睿彥",
       "locked": false
     },
     {
-      "date": "2027-01-12",
-      "type": "Case & Clinical pearls",
+      "date": "2027-01-06",
+      "type": "綜合大會",
+      "doctor_id": "E",
+      "doctor_name": "林睿彥",
+      "locked": false
+    },
+    {
+      "date": "2027-01-07",
+      "type": "影像討論",
       "doctor_id": "D",
       "doctor_name": "潘立岩",
+      "locked": false
+    },
+    {
+      "date": "2027-01-12",
+      "type": "Case & Clinical pearls",
+      "doctor_id": "B",
+      "doctor_name": "陳佩穎",
       "locked": false
     },
     {
@@ -251,8 +251,8 @@
     {
       "date": "2027-01-19",
       "type": "Video",
-      "doctor_id": "B",
-      "doctor_name": "陳佩穎",
+      "doctor_id": "F",
+      "doctor_name": "陳彥廷",
       "locked": false
     },
     {
@@ -265,15 +265,15 @@
     {
       "date": "2027-01-21",
       "type": "Video",
-      "doctor_id": "D",
-      "doctor_name": "潘立岩",
+      "doctor_id": "G",
+      "doctor_name": "朱學彥",
       "locked": false
     },
     {
       "date": "2027-01-26",
       "type": "Video",
-      "doctor_id": "B",
-      "doctor_name": "陳佩穎",
+      "doctor_id": "A",
+      "doctor_name": "周宏達",
       "locked": false
     },
     {
@@ -293,8 +293,8 @@
     {
       "date": "2027-02-02",
       "type": "影像討論",
-      "doctor_id": "G",
-      "doctor_name": "朱學彥",
+      "doctor_id": "F",
+      "doctor_name": "陳彥廷",
       "locked": false
     },
     {
@@ -307,15 +307,15 @@
     {
       "date": "2027-02-04",
       "type": "綜合大會",
-      "doctor_id": "C",
-      "doctor_name": "葉柏漢",
+      "doctor_id": "B",
+      "doctor_name": "陳佩穎",
       "locked": false
     },
     {
       "date": "2027-02-16",
       "type": "Case & Clinical pearls",
-      "doctor_id": "B",
-      "doctor_name": "陳佩穎",
+      "doctor_id": "G",
+      "doctor_name": "朱學彥",
       "locked": false
     },
     {
@@ -328,15 +328,15 @@
     {
       "date": "2027-02-18",
       "type": "Video",
-      "doctor_id": "D",
-      "doctor_name": "潘立岩",
+      "doctor_id": "C",
+      "doctor_name": "葉柏漢",
       "locked": false
     },
     {
       "date": "2027-02-23",
       "type": "Video",
-      "doctor_id": "F",
-      "doctor_name": "陳彥廷",
+      "doctor_id": "D",
+      "doctor_name": "潘立岩",
       "locked": false
     },
     {
@@ -356,29 +356,29 @@
     {
       "date": "2027-03-02",
       "type": "綜合大會",
-      "doctor_id": "G",
-      "doctor_name": "朱學彥",
-      "locked": false
-    },
-    {
-      "date": "2027-03-03",
-      "type": "影像討論",
       "doctor_id": "F",
       "doctor_name": "陳彥廷",
       "locked": false
     },
     {
+      "date": "2027-03-03",
+      "type": "影像討論",
+      "doctor_id": "G",
+      "doctor_name": "朱學彥",
+      "locked": false
+    },
+    {
       "date": "2027-03-04",
       "type": "Video",
-      "doctor_id": "B",
-      "doctor_name": "陳佩穎",
+      "doctor_id": "E",
+      "doctor_name": "林睿彥",
       "locked": false
     },
     {
       "date": "2027-03-09",
       "type": "Case & Clinical pearls",
-      "doctor_id": "E",
-      "doctor_name": "林睿彥",
+      "doctor_id": "D",
+      "doctor_name": "潘立岩",
       "locked": false
     },
     {
@@ -398,15 +398,15 @@
     {
       "date": "2027-03-16",
       "type": "Video",
-      "doctor_id": "G",
-      "doctor_name": "朱學彥",
+      "doctor_id": "A",
+      "doctor_name": "周宏達",
       "locked": false
     },
     {
       "date": "2027-03-17",
       "type": "Video",
-      "doctor_id": "F",
-      "doctor_name": "陳彥廷",
+      "doctor_id": "G",
+      "doctor_name": "朱學彥",
       "locked": false
     },
     {
@@ -419,8 +419,8 @@
     {
       "date": "2027-03-23",
       "type": "Video",
-      "doctor_id": "A",
-      "doctor_name": "周宏達",
+      "doctor_id": "E",
+      "doctor_name": "林睿彥",
       "locked": false
     },
     {
@@ -440,8 +440,8 @@
     {
       "date": "2027-04-01",
       "type": "影像討論",
-      "doctor_id": "E",
-      "doctor_name": "林睿彥",
+      "doctor_id": "B",
+      "doctor_name": "陳佩穎",
       "locked": false
     },
     {
@@ -468,29 +468,29 @@
     {
       "date": "2027-04-13",
       "type": "Case & Clinical pearls",
-      "doctor_id": "D",
-      "doctor_name": "潘立岩",
-      "locked": false
-    },
-    {
-      "date": "2027-04-14",
-      "type": "Video",
-      "doctor_id": "E",
-      "doctor_name": "林睿彥",
-      "locked": false
-    },
-    {
-      "date": "2027-04-15",
-      "type": "綜合大會",
       "doctor_id": "F",
       "doctor_name": "陳彥廷",
       "locked": false
     },
     {
-      "date": "2027-04-20",
+      "date": "2027-04-14",
       "type": "Video",
       "doctor_id": "A",
       "doctor_name": "周宏達",
+      "locked": false
+    },
+    {
+      "date": "2027-04-15",
+      "type": "綜合大會",
+      "doctor_id": "G",
+      "doctor_name": "朱學彥",
+      "locked": false
+    },
+    {
+      "date": "2027-04-20",
+      "type": "Video",
+      "doctor_id": "D",
+      "doctor_name": "潘立岩",
       "locked": false
     },
     {
@@ -510,50 +510,50 @@
     {
       "date": "2027-04-27",
       "type": "Video",
-      "doctor_id": "B",
-      "doctor_name": "陳佩穎",
+      "doctor_id": "E",
+      "doctor_name": "林睿彥",
       "locked": false
     },
     {
       "date": "2027-04-28",
       "type": "Video",
+      "doctor_id": "A",
+      "doctor_name": "周宏達",
+      "locked": false
+    },
+    {
+      "date": "2027-04-29",
+      "type": "Video",
       "doctor_id": "G",
       "doctor_name": "朱學彥",
       "locked": false
     },
     {
-      "date": "2027-04-29",
+      "date": "2027-05-04",
+      "type": "綜合大會",
+      "doctor_id": "D",
+      "doctor_name": "潘立岩",
+      "locked": false
+    },
+    {
+      "date": "2027-05-05",
       "type": "Video",
       "doctor_id": "B",
       "doctor_name": "陳佩穎",
       "locked": false
     },
     {
-      "date": "2027-05-04",
-      "type": "綜合大會",
-      "doctor_id": "G",
-      "doctor_name": "朱學彥",
-      "locked": false
-    },
-    {
-      "date": "2027-05-05",
-      "type": "Video",
-      "doctor_id": "D",
-      "doctor_name": "潘立岩",
-      "locked": false
-    },
-    {
       "date": "2027-05-06",
       "type": "影像討論",
-      "doctor_id": "F",
-      "doctor_name": "陳彥廷",
+      "doctor_id": "C",
+      "doctor_name": "葉柏漢",
       "locked": false
     },
     {
       "date": "2027-05-11",
       "type": "Case & Clinical pearls",
-      "doctor_id": "E",
-      "doctor_name": "林睿彥",
+      "doctor_id": "A",
+      "doctor_name": "周宏達",
       "locked": false
     },
     {
@@ -573,8 +573,8 @@
     {
       "date": "2027-05-18",
       "type": "Video",
-      "doctor_id": "E",
-      "doctor_name": "林睿彥",
+      "doctor_id": "D",
+      "doctor_name": "潘立岩",
       "locked": false
     },
     {
@@ -587,15 +587,15 @@
     {
       "date": "2027-05-20",
       "type": "Video",
-      "doctor_id": "C",
-      "doctor_name": "葉柏漢",
+      "doctor_id": "F",
+      "doctor_name": "陳彥廷",
       "locked": false
     },
     {
       "date": "2027-05-25",
       "type": "Video",
-      "doctor_id": "A",
-      "doctor_name": "周宏達",
+      "doctor_id": "E",
+      "doctor_name": "林睿彥",
       "locked": false
     },
     {
@@ -615,8 +615,8 @@
     {
       "date": "2027-06-01",
       "type": "影像討論",
-      "doctor_id": "G",
-      "doctor_name": "朱學彥",
+      "doctor_id": "A",
+      "doctor_name": "周宏達",
       "locked": false
     },
     {
@@ -629,15 +629,15 @@
     {
       "date": "2027-06-03",
       "type": "Video",
-      "doctor_id": "F",
-      "doctor_name": "陳彥廷",
+      "doctor_id": "B",
+      "doctor_name": "陳佩穎",
       "locked": false
     },
     {
       "date": "2027-06-08",
-      "type": "Case & Clinical pearls",
-      "doctor_id": "F",
-      "doctor_name": "陳彥廷",
+      "type": "Video",
+      "doctor_id": "E",
+      "doctor_name": "林睿彥",
       "locked": false
     },
     {
@@ -657,29 +657,29 @@
     {
       "date": "2027-06-15",
       "type": "Video",
-      "doctor_id": "D",
-      "doctor_name": "潘立岩",
+      "doctor_id": "F",
+      "doctor_name": "陳彥廷",
       "locked": false
     },
     {
       "date": "2027-06-16",
       "type": "Video",
-      "doctor_id": "C",
-      "doctor_name": "葉柏漢",
-      "locked": false
-    },
-    {
-      "date": "2027-06-17",
-      "type": "Video",
       "doctor_id": "D",
       "doctor_name": "潘立岩",
       "locked": false
     },
     {
+      "date": "2027-06-17",
+      "type": "Case & Clinical pearls",
+      "doctor_id": "C",
+      "doctor_name": "葉柏漢",
+      "locked": false
+    },
+    {
       "date": "2027-06-22",
       "type": "Video",
-      "doctor_id": "A",
-      "doctor_name": "周宏達",
+      "doctor_id": "F",
+      "doctor_name": "陳彥廷",
       "locked": false
     },
     {
@@ -699,8 +699,8 @@
     {
       "date": "2027-06-29",
       "type": "VS research meeting",
-      "doctor_id": "E",
-      "doctor_name": "林睿彥",
+      "doctor_id": "G",
+      "doctor_name": "朱學彥",
       "locked": false
     }
   ]
