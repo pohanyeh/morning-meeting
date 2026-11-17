@@ -19,8 +19,7 @@
     "併發症討論",
     "影像討論",
     "TransPRK教學",
-    "專題演講",
-    "停會"
+    "專題演講"
   ],
   "meeting_colors": {
     "病例/期刊論文討論": "#DCEBFF",
@@ -35,8 +34,7 @@
     "文獻討論": "#D5F5FA",
     "RRC會議": "#FFDEC4",
     "專題演講": "#FCE4EF",
-    "TransPRK教學": "#DDF4C7",
-    "停會": "#6B7280"
+    "TransPRK教學": "#DDF4C7"
   },
   "doctor_colors": {
     "A": "#7F1D1D",
@@ -128,29 +126,29 @@
     {
       "date": "2026-12-01",
       "type": "影像討論",
-      "doctor_id": "B",
-      "doctor_name": "陳佩穎",
-      "locked": false
-    },
-    {
-      "date": "2026-12-02",
-      "type": "病例/期刊論文討論",
       "doctor_id": "E",
       "doctor_name": "林睿彥",
       "locked": false
     },
     {
-      "date": "2026-12-03",
+      "date": "2026-12-02",
       "type": "病例/期刊論文討論",
       "doctor_id": "A",
       "doctor_name": "周宏達",
       "locked": false
     },
     {
+      "date": "2026-12-03",
+      "type": "病例/期刊論文討論",
+      "doctor_id": "E",
+      "doctor_name": "林睿彥",
+      "locked": false
+    },
+    {
       "date": "2026-12-08",
       "type": "病例/期刊論文討論",
-      "doctor_id": "D",
-      "doctor_name": "潘立岩",
+      "doctor_id": "G",
+      "doctor_name": "朱學彥",
       "locked": false
     },
     {
@@ -170,8 +168,8 @@
     {
       "date": "2026-12-15",
       "type": "併發症討論",
-      "doctor_id": "G",
-      "doctor_name": "朱學彥",
+      "doctor_id": "F",
+      "doctor_name": "陳彥廷",
       "locked": false
     },
     {
@@ -184,8 +182,8 @@
     {
       "date": "2026-12-17",
       "type": "病例/期刊論文討論",
-      "doctor_id": "F",
-      "doctor_name": "陳彥廷",
+      "doctor_id": "G",
+      "doctor_name": "朱學彥",
       "locked": false
     },
     {
@@ -212,36 +210,36 @@
     {
       "date": "2026-12-29",
       "type": "病例/期刊論文討論",
-      "doctor_id": "E",
-      "doctor_name": "林睿彥",
-      "locked": false
-    },
-    {
-      "date": "2026-12-30",
-      "type": "病例/期刊論文討論",
       "doctor_id": "A",
       "doctor_name": "周宏達",
       "locked": false
     },
     {
-      "date": "2026-12-31",
-      "type": "病例/期刊論文討論",
-      "doctor_id": "G",
-      "doctor_name": "朱學彥",
-      "locked": false
-    },
-    {
-      "date": "2027-01-05",
+      "date": "2026-12-30",
       "type": "病例/期刊論文討論",
       "doctor_id": "D",
       "doctor_name": "潘立岩",
       "locked": false
     },
     {
-      "date": "2027-01-06",
-      "type": "影像討論",
+      "date": "2026-12-31",
+      "type": "病例/期刊論文討論",
       "doctor_id": "F",
       "doctor_name": "陳彥廷",
+      "locked": false
+    },
+    {
+      "date": "2027-01-05",
+      "type": "病例/期刊論文討論",
+      "doctor_id": "B",
+      "doctor_name": "陳佩穎",
+      "locked": false
+    },
+    {
+      "date": "2027-01-06",
+      "type": "影像討論",
+      "doctor_id": "D",
+      "doctor_name": "潘立岩",
       "locked": false
     },
     {
@@ -253,10 +251,10 @@
     },
     {
       "date": "2027-01-12",
-      "type": "行政會議",
+      "type": "病例/期刊論文討論",
       "doctor_id": "A",
       "doctor_name": "周宏達",
-      "locked": true
+      "locked": false
     },
     {
       "date": "2027-01-13",
@@ -267,37 +265,37 @@
     },
     {
       "date": "2027-01-14",
+      "type": "行政會議",
+      "doctor_id": "A",
+      "doctor_name": "周宏達",
+      "locked": true
+    },
+    {
+      "date": "2027-01-19",
       "type": "病例/期刊論文討論",
       "doctor_id": "B",
       "doctor_name": "陳佩穎",
       "locked": false
     },
     {
-      "date": "2027-01-19",
+      "date": "2027-01-20",
       "type": "病例/期刊論文討論",
-      "doctor_id": "A",
-      "doctor_name": "周宏達",
+      "doctor_id": "G",
+      "doctor_name": "朱學彥",
       "locked": false
     },
     {
-      "date": "2027-01-20",
+      "date": "2027-01-21",
       "type": "病例/期刊論文討論",
       "doctor_id": "E",
       "doctor_name": "林睿彥",
       "locked": false
     },
     {
-      "date": "2027-01-21",
-      "type": "RRC會議",
-      "doctor_id": "B",
-      "doctor_name": "陳佩穎",
-      "locked": true
-    },
-    {
       "date": "2027-01-26",
       "type": "病例/期刊論文討論",
-      "doctor_id": "G",
-      "doctor_name": "朱學彥",
+      "doctor_id": "D",
+      "doctor_name": "潘立岩",
       "locked": false
     },
     {
@@ -309,37 +307,37 @@
     },
     {
       "date": "2027-01-28",
+      "type": "RRC會議",
+      "doctor_id": "B",
+      "doctor_name": "陳佩穎",
+      "locked": true
+    },
+    {
+      "date": "2027-02-02",
       "type": "病例/期刊論文討論",
       "doctor_id": "F",
       "doctor_name": "陳彥廷",
       "locked": false
     },
     {
-      "date": "2027-02-02",
-      "type": "病例/期刊論文討論",
-      "doctor_id": "D",
-      "doctor_name": "潘立岩",
-      "locked": false
-    },
-    {
       "date": "2027-02-03",
-      "type": "行政會議",
-      "doctor_id": "A",
-      "doctor_name": "周宏達",
+      "type": "VS Research Meeting",
+      "doctor_id": "E",
+      "doctor_name": "林睿彥",
       "locked": true
     },
     {
       "date": "2027-02-04",
       "type": "停會",
       "doctor_id": "C",
-      "doctor_name": "",
+      "doctor_name": "葉柏漢",
       "locked": false
     },
     {
       "date": "2027-02-16",
       "type": "併發症討論",
-      "doctor_id": "E",
-      "doctor_name": "林睿彥",
+      "doctor_id": "G",
+      "doctor_name": "朱學彥",
       "locked": false
     },
     {
@@ -359,15 +357,15 @@
     {
       "date": "2027-02-23",
       "type": "病例/期刊論文討論",
-      "doctor_id": "F",
-      "doctor_name": "陳彥廷",
+      "doctor_id": "B",
+      "doctor_name": "陳佩穎",
       "locked": false
     },
     {
       "date": "2027-02-24",
-      "type": "VS Research Meeting",
-      "doctor_id": "E",
-      "doctor_name": "林睿彥",
+      "type": "行政會議",
+      "doctor_id": "A",
+      "doctor_name": "周宏達",
       "locked": true
     },
     {
@@ -380,8 +378,8 @@
     {
       "date": "2027-03-02",
       "type": "病例/期刊論文討論",
-      "doctor_id": "D",
-      "doctor_name": "潘立岩",
+      "doctor_id": "A",
+      "doctor_name": "周宏達",
       "locked": false
     },
     {
@@ -393,16 +391,16 @@
     },
     {
       "date": "2027-03-04",
-      "type": "行政會議",
-      "doctor_id": "A",
-      "doctor_name": "周宏達",
-      "locked": true
+      "type": "病例/期刊論文討論",
+      "doctor_id": "F",
+      "doctor_name": "陳彥廷",
+      "locked": false
     },
     {
       "date": "2027-03-09",
       "type": "病例/期刊論文討論",
-      "doctor_id": "B",
-      "doctor_name": "陳佩穎",
+      "doctor_id": "E",
+      "doctor_name": "林睿彥",
       "locked": false
     },
     {
@@ -414,16 +412,16 @@
     },
     {
       "date": "2027-03-11",
-      "type": "病例/期刊論文討論",
+      "type": "行政會議",
       "doctor_id": "A",
       "doctor_name": "周宏達",
-      "locked": false
+      "locked": true
     },
     {
       "date": "2027-03-16",
       "type": "病例/期刊論文討論",
-      "doctor_id": "G",
-      "doctor_name": "朱學彥",
+      "doctor_id": "F",
+      "doctor_name": "陳彥廷",
       "locked": false
     },
     {
@@ -435,16 +433,16 @@
     },
     {
       "date": "2027-03-18",
-      "type": "RRC會議",
-      "doctor_id": "B",
-      "doctor_name": "陳佩穎",
-      "locked": true
+      "type": "病例/期刊論文討論",
+      "doctor_id": "D",
+      "doctor_name": "潘立岩",
+      "locked": false
     },
     {
       "date": "2027-03-23",
       "type": "病例/期刊論文討論",
-      "doctor_id": "F",
-      "doctor_name": "陳彥廷",
+      "doctor_id": "G",
+      "doctor_name": "朱學彥",
       "locked": false
     },
     {
@@ -452,20 +450,20 @@
       "type": "VS Research Meeting",
       "doctor_id": "D",
       "doctor_name": "潘立岩",
-      "locked": false
+      "locked": true
     },
     {
       "date": "2027-03-25",
-      "type": "專題演講",
-      "doctor_id": "A",
-      "doctor_name": "周宏達",
-      "locked": false
+      "type": "RRC會議",
+      "doctor_id": "B",
+      "doctor_name": "陳佩穎",
+      "locked": true
     },
     {
       "date": "2027-03-30",
       "type": "病例/期刊論文討論",
-      "doctor_id": "E",
-      "doctor_name": "林睿彥",
+      "doctor_id": "A",
+      "doctor_name": "周宏達",
       "locked": false
     },
     {
@@ -477,87 +475,87 @@
     },
     {
       "date": "2027-04-01",
+      "type": "病例/期刊論文討論",
+      "doctor_id": "G",
+      "doctor_name": "朱學彥",
+      "locked": false
+    },
+    {
+      "date": "2027-04-06",
+      "type": "病例/期刊論文討論",
+      "doctor_id": "A",
+      "doctor_name": "周宏達",
+      "locked": false
+    },
+    {
+      "date": "2027-04-07",
+      "type": "VS Research Meeting",
+      "doctor_id": "C",
+      "doctor_name": "葉柏漢",
+      "locked": true
+    },
+    {
+      "date": "2027-04-08",
       "type": "行政會議",
       "doctor_id": "A",
       "doctor_name": "周宏達",
       "locked": true
     },
     {
-      "date": "2027-04-06",
+      "date": "2027-04-13",
       "type": "病例/期刊論文討論",
       "doctor_id": "G",
       "doctor_name": "朱學彥",
       "locked": false
     },
     {
-      "date": "2027-04-07",
-      "type": "影像討論",
-      "doctor_id": "D",
-      "doctor_name": "潘立岩",
-      "locked": false
-    },
-    {
-      "date": "2027-04-08",
-      "type": "病例/期刊論文討論",
-      "doctor_id": "C",
-      "doctor_name": "葉柏漢",
-      "locked": false
-    },
-    {
-      "date": "2027-04-13",
-      "type": "病例/期刊論文討論",
-      "doctor_id": "F",
-      "doctor_name": "陳彥廷",
-      "locked": false
-    },
-    {
       "date": "2027-04-14",
-      "type": "VS Research Meeting",
-      "doctor_id": "C",
-      "doctor_name": "葉柏漢",
-      "locked": true
+      "type": "影像討論",
+      "doctor_id": "E",
+      "doctor_name": "林睿彥",
+      "locked": false
     },
     {
       "date": "2027-04-15",
+      "type": "病例/期刊論文討論",
+      "doctor_id": "A",
+      "doctor_name": "周宏達",
+      "locked": false
+    },
+    {
+      "date": "2027-04-20",
+      "type": "併發症討論",
+      "doctor_id": "E",
+      "doctor_name": "林睿彥",
+      "locked": false
+    },
+    {
+      "date": "2027-04-21",
+      "type": "VS Research Meeting",
+      "doctor_id": "F",
+      "doctor_name": "陳彥廷",
+      "locked": true
+    },
+    {
+      "date": "2027-04-22",
       "type": "RRC會議",
       "doctor_id": "B",
       "doctor_name": "陳佩穎",
       "locked": true
     },
     {
-      "date": "2027-04-20",
-      "type": "併發症討論",
-      "doctor_id": "A",
-      "doctor_name": "周宏達",
-      "locked": false
-    },
-    {
-      "date": "2027-04-21",
-      "type": "病例/期刊論文討論",
-      "doctor_id": "E",
-      "doctor_name": "林睿彥",
-      "locked": false
-    },
-    {
-      "date": "2027-04-22",
+      "date": "2027-04-27",
       "type": "病例/期刊論文討論",
       "doctor_id": "D",
       "doctor_name": "潘立岩",
       "locked": false
     },
     {
-      "date": "2027-04-27",
-      "type": "病例/期刊論文討論",
-      "doctor_id": "G",
-      "doctor_name": "朱學彥",
-      "locked": false
-    },
-    {
       "date": "2027-04-28",
-      "type": "VS Research Meeting",
-      "doctor_id": "F",
-      "doctor_name": "陳彥廷",
-      "locked": true
+      "type": "病例/期刊論文討論",
+      "doctor_id": "B",
+      "doctor_name": "陳佩穎",
+      "locked": false
     },
     {
       "date": "2027-04-29",
@@ -569,23 +567,23 @@
     {
       "date": "2027-05-04",
       "type": "病例/期刊論文討論",
-      "doctor_id": "A",
-      "doctor_name": "周宏達",
+      "doctor_id": "B",
+      "doctor_name": "陳佩穎",
       "locked": false
     },
     {
       "date": "2027-05-05",
       "type": "影像討論",
-      "doctor_id": "E",
-      "doctor_name": "林睿彥",
+      "doctor_id": "G",
+      "doctor_name": "朱學彥",
       "locked": false
     },
     {
       "date": "2027-05-06",
-      "type": "行政會議",
-      "doctor_id": "A",
-      "doctor_name": "周宏達",
-      "locked": true
+      "type": "病例/期刊論文討論",
+      "doctor_id": "D",
+      "doctor_name": "潘立岩",
+      "locked": false
     },
     {
       "date": "2027-05-11",
@@ -603,31 +601,31 @@
     },
     {
       "date": "2027-05-13",
+      "type": "行政會議",
+      "doctor_id": "A",
+      "doctor_name": "周宏達",
+      "locked": true
+    },
+    {
+      "date": "2027-05-18",
       "type": "病例/期刊論文討論",
       "doctor_id": "C",
       "doctor_name": "葉柏漢",
       "locked": false
     },
     {
-      "date": "2027-05-18",
-      "type": "病例/期刊論文討論",
-      "doctor_id": "G",
-      "doctor_name": "朱學彥",
-      "locked": false
-    },
-    {
       "date": "2027-05-19",
       "type": "病例/期刊論文討論",
-      "doctor_id": "D",
-      "doctor_name": "潘立岩",
+      "doctor_id": "F",
+      "doctor_name": "陳彥廷",
       "locked": false
     },
     {
       "date": "2027-05-20",
-      "type": "RRC會議",
-      "doctor_id": "B",
-      "doctor_name": "陳佩穎",
-      "locked": true
+      "type": "病例/期刊論文討論",
+      "doctor_id": "C",
+      "doctor_name": "葉柏漢",
+      "locked": false
     },
     {
       "date": "2027-05-25",
@@ -645,10 +643,10 @@
     },
     {
       "date": "2027-05-27",
-      "type": "病例/期刊論文討論",
+      "type": "RRC會議",
       "doctor_id": "B",
       "doctor_name": "陳佩穎",
-      "locked": false
+      "locked": true
     },
     {
       "date": "2027-06-01",
@@ -660,22 +658,22 @@
     {
       "date": "2027-06-02",
       "type": "影像討論",
-      "doctor_id": "G",
-      "doctor_name": "朱學彥",
+      "doctor_id": "A",
+      "doctor_name": "周宏達",
       "locked": false
     },
     {
       "date": "2027-06-03",
-      "type": "行政會議",
-      "doctor_id": "A",
-      "doctor_name": "周宏達",
-      "locked": true
+      "type": "病例/期刊論文討論",
+      "doctor_id": "C",
+      "doctor_name": "葉柏漢",
+      "locked": false
     },
     {
       "date": "2027-06-08",
       "type": "病例/期刊論文討論",
-      "doctor_id": "F",
-      "doctor_name": "陳彥廷",
+      "doctor_id": "G",
+      "doctor_name": "朱學彥",
       "locked": false
     },
     {
@@ -687,37 +685,37 @@
     },
     {
       "date": "2027-06-10",
-      "type": "病例/期刊論文討論",
+      "type": "行政會議",
       "doctor_id": "A",
       "doctor_name": "周宏達",
-      "locked": false
+      "locked": true
     },
     {
       "date": "2027-06-15",
       "type": "併發症討論",
+      "doctor_id": "D",
+      "doctor_name": "潘立岩",
+      "locked": false
+    },
+    {
+      "date": "2027-06-16",
+      "type": "病例/期刊論文討論",
       "doctor_id": "B",
       "doctor_name": "陳佩穎",
       "locked": false
     },
     {
-      "date": "2027-06-16",
+      "date": "2027-06-17",
       "type": "病例/期刊論文討論",
       "doctor_id": "E",
       "doctor_name": "林睿彥",
       "locked": false
     },
     {
-      "date": "2027-06-17",
-      "type": "RRC會議",
-      "doctor_id": "B",
-      "doctor_name": "陳佩穎",
-      "locked": true
-    },
-    {
       "date": "2027-06-22",
       "type": "病例/期刊論文討論",
-      "doctor_id": "G",
-      "doctor_name": "朱學彥",
+      "doctor_id": "F",
+      "doctor_name": "陳彥廷",
       "locked": false
     },
     {
@@ -729,23 +727,23 @@
     },
     {
       "date": "2027-06-24",
-      "type": "病例/期刊論文討論",
-      "doctor_id": "C",
-      "doctor_name": "葉柏漢",
-      "locked": false
+      "type": "RRC會議",
+      "doctor_id": "B",
+      "doctor_name": "陳佩穎",
+      "locked": true
     },
     {
       "date": "2027-06-29",
       "type": "病例/期刊論文討論",
-      "doctor_id": "F",
-      "doctor_name": "陳彥廷",
+      "doctor_id": "A",
+      "doctor_name": "周宏達",
       "locked": false
     },
     {
       "date": "2027-06-30",
       "type": "病例/期刊論文討論",
-      "doctor_id": "A",
-      "doctor_name": "周宏達",
+      "doctor_id": "C",
+      "doctor_name": "葉柏漢",
       "locked": false
     }
   ]
