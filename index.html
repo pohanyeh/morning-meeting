@@ -8,13 +8,31 @@
 :root{color-scheme:dark;--bg:#111827;--panel:#1f2937;--line:#374151;--text:#f9fafb;--muted:#cbd5e1;--accent:#93c5fd}
 *{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--text);font-family:system-ui,-apple-system,"Microsoft JhengHei","Noto Sans TC",sans-serif;line-height:1.5}
 main{max-width:1500px;margin:auto;padding:26px 22px 50px}header{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:16px;margin-bottom:18px}h1{font-size:clamp(22px,3vw,30px);margin:0}h2{font-size:17px;margin:0 0 14px}.sub{color:var(--muted);font-size:13px;margin:3px 0 0}.controls{display:flex;align-items:center;gap:10px}select{background:#273449;color:#fff;border:1px solid #607087;border-radius:8px;padding:10px 14px;font-size:15px;min-width:145px}section{background:var(--panel);border:1px solid var(--line);border-radius:14px;padding:18px;margin-bottom:18px;min-width:0}.scroll{overflow-x:auto}table{border-collapse:separate;border-spacing:0;width:100%;font-size:14px}th,td{border-bottom:1px solid var(--line);padding:11px 12px;text-align:left}th{font-weight:650;color:#e5e7eb;background:#2b3748}tr:last-child td{border-bottom:0}.calendar{table-layout:fixed;min-width:620px}.calendar th:first-child{width:95px}.calendar td{height:115px;vertical-align:top;border-right:1px solid var(--line)}.calendar td:last-child{border-right:0}.calendar .week{color:#d1d5db;font-weight:650;vertical-align:middle;background:#253142}.date{font-size:12px;color:#cbd5e1;margin-bottom:8px}.meeting{padding:10px;border-radius:8px;color:#111827;min-height:74px;overflow-wrap:anywhere}.meeting-title{font-weight:700;font-size:13px}.doctor{display:inline-block;margin-top:7px;padding:2px 7px;border-radius:5px;color:#fff;font-size:12px;font-weight:700}.empty{color:#64748b}.stats{display:grid;grid-template-columns:1fr 1fr;gap:18px}.stats section{margin:0}.number{text-align:right;font-variant-numeric:tabular-nums}.name-chip{display:inline-block;padding:3px 8px;border-radius:6px;font-weight:650;color:#fff}.summary{font-size:13px;color:var(--muted);margin-top:12px}.error{padding:14px;background:#4b2525;border:1px solid #a65c5c;border-radius:8px}.legend{color:var(--muted);font-size:12px;margin-top:8px}@media(max-width:780px){main{padding:16px 12px}.stats{grid-template-columns:1fr}section{padding:13px}.calendar td{padding:8px}.calendar th:first-child{width:70px}}
+
+.tabs{display:flex;gap:8px;flex-wrap:wrap;margin:16px 0}.tab{background:#273449;border:1px solid #4b607a;color:#e5e7eb;padding:10px 17px;border-radius:9px;font-weight:650;cursor:pointer}.tab[aria-selected="true"]{background:#2563eb;border-color:#60a5fa;color:#fff}.tab:focus-visible{outline:3px solid #93c5fd}.panel[hidden]{display:none!important}.filterbar{display:flex;gap:14px;flex-wrap:wrap;align-items:center;margin-bottom:16px}.filterbar label{display:flex;align-items:center;gap:8px}.filtered-note{color:var(--muted);font-size:13px;margin:10px 0}.empty-row{text-align:center;color:var(--muted)}
 </style>
 </head>
 <body><main>
-<header><div><h1>眼科晨會行事曆</h1><p class="sub">每週二、三、四 · 排程與醫師負責場次</p></div><div class="controls"><label for="month">月份</label><select id="month" aria-label="選擇月份"></select></div></header>
+<header><div><h1>眼科晨會行事曆</h1><p class="sub">每週二、三、四 · 2026/12–2027/06</p></div></header>
+<nav class="tabs" role="tablist" aria-label="排程功能">
+<button class="tab" id="tab-calendar" role="tab" aria-controls="panel-calendar" aria-selected="true" tabindex="0" data-tab="calendar">每週行事曆</button>
+<button class="tab" id="tab-meetings" role="tab" aria-controls="panel-meetings" aria-selected="false" tabindex="-1" data-tab="meetings">會議清單</button>
+<button class="tab" id="tab-doctors" role="tab" aria-controls="panel-doctors" aria-selected="false" tabindex="-1" data-tab="doctors">醫師統計</button>
+</nav>
 <div id="status" class="sub" role="status">正在載入排程…</div>
-<section aria-label="每週行事曆"><h2>每週晨會行事曆</h2><div class="scroll"><table class="calendar"><thead><tr><th>週次</th><th>星期二</th><th>星期三</th><th>星期四</th></tr></thead><tbody id="calendarBody"></tbody></table></div><div class="legend">會議顏色與醫師顏色沿用 Python 排程設定。</div></section>
-<div class="stats"><section><h2>本月各會議數量</h2><div class="scroll"><table><thead><tr><th>會議種類</th><th class="number">場次</th></tr></thead><tbody id="typeBody"></tbody></table></div><p class="summary" id="typeSummary"></p></section><section><h2>本月各醫師場次</h2><div class="scroll"><table><thead><tr><th>醫師姓名</th><th class="number">全部場次</th><th class="number">平均分配計數</th></tr></thead><tbody id="doctorBody"></tbody></table></div><p class="summary">平均分配計數不含行政會議及 RRC 會議；停用醫師若仍有排程，也會顯示。</p></section></div>
+<div class="panel" id="panel-calendar" role="tabpanel" aria-labelledby="tab-calendar">
+<div class="filterbar"><label for="month">月份 <select id="month" aria-label="行事曆月份"></select></label></div>
+<section aria-label="每週行事曆"><h2>每週晨會行事曆</h2><div class="scroll"><table class="calendar"><thead><tr><th>週次</th><th>星期二</th><th>星期三</th><th>星期四</th></tr></thead><tbody id="calendarBody"></tbody></table></div><div class="legend">會議與醫師顏色沿用 Python 排程設定。</div></section>
+<div class="stats"><section><h2>本月各會議數量</h2><div class="scroll"><table><thead><tr><th>會議種類</th><th class="number">場次</th></tr></thead><tbody id="typeBody"></tbody></table></div><p class="summary" id="typeSummary"></p></section><section><h2>本月各醫師場次</h2><div class="scroll"><table><thead><tr><th>醫師姓名</th><th class="number">全部場次</th><th class="number">平均分配計數</th></tr></thead><tbody id="doctorBody"></tbody></table></div><p class="summary">平均分配計數不含行政會議及 RRC 會議。</p></section></div>
+</div>
+<div class="panel" id="panel-meetings" role="tabpanel" aria-labelledby="tab-meetings" hidden>
+<section><h2>會議清單</h2><div class="filterbar"><label for="meetingType">會議種類 <select id="meetingType"></select></label><label for="meetingMonth">月份 <select id="meetingMonth"></select></label></div>
+<p class="filtered-note" id="meetingCount"></p><div class="scroll"><table><thead><tr><th>日期</th><th>會議種類</th><th>負責醫師</th></tr></thead><tbody id="meetingListBody"></tbody></table></div></section>
+</div>
+<div class="panel" id="panel-doctors" role="tabpanel" aria-labelledby="tab-doctors" hidden>
+<section><h2>醫師統計</h2><div class="filterbar"><label for="statsDoctor">醫師 <select id="statsDoctor"></select></label><label for="statsMonth">統計期間 <select id="statsMonth"></select></label></div>
+<p class="filtered-note" id="statsCount"></p><div class="scroll"><table><thead><tr><th>醫師姓名</th><th>會議種類</th><th class="number">場次</th></tr></thead><tbody id="statsBody"></tbody></table></div><p class="summary">行政會議及 RRC 仍列入各類會議統計，但不計入平均分配計數。</p></section>
+</div>
 </main>
 <script>
 'use strict';
@@ -27,6 +45,15 @@ const pad=n=>String(n).padStart(2,'0');
 const dateKey=(y,m,d)=>`${y}-${pad(m)}-${pad(d)}`;
 const $=id=>document.getElementById(id);
 let schedule;
+const meetingTypes=()=>[...new Set([...DEFAULT_ORDER,...(schedule.meeting_order||[]).map(normalize),...schedule.meetings.map(e=>normalize(e.type))])].sort(typeSort);
+function typeSort(a,b){const ai=DEFAULT_ORDER.indexOf(a),bi=DEFAULT_ORDER.indexOf(b);return (ai<0?999:ai)-(bi<0?999:bi)||a.localeCompare(b,'zh-Hant')}
+function nameOf(e){return schedule.doctors?.[e.doctor_id]||e.doctor_name||e.doctor_id||''}
+function doctorChip(e){const c=safeColor(schedule.doctor_colors?.[e.doctor_id],'#334155');return `<span class="name-chip" style="background:${c}">${escapeHTML(nameOf(e))}</span>`}
+function renderMeetings(){const t=$('meetingType').value,m=$('meetingMonth').value;const rows=schedule.meetings.filter(e=>(t==='全部'||normalize(e.type)===t)&&(m==='全部'||e.date.startsWith(m))).sort((a,b)=>a.date.localeCompare(b.date));$('meetingCount').textContent=`共 ${rows.length} 場`; $('meetingListBody').innerHTML=rows.map(e=>`<tr><td>${escapeHTML(e.date)}</td><td>${escapeHTML(normalize(e.type))}</td><td>${doctorChip(e)}</td></tr>`).join('')||'<tr><td colspan="3" class="empty-row">此篩選條件沒有會議</td></tr>'}
+function renderDoctorStats(){const d=$('statsDoctor').value,m=$('statsMonth').value;const rows=schedule.meetings.filter(e=>(d==='全部'||e.doctor_id===d)&&(m==='全部'||e.date.startsWith(m)));const counts=new Map();for(const e of rows){const key=e.doctor_id+'\u0000'+normalize(e.type);counts.set(key,(counts.get(key)||0)+1)}const doctors=Object.keys(schedule.doctors||{}).concat(schedule.meetings.map(e=>e.doctor_id)).filter((v,i,a)=>a.indexOf(v)===i).sort();const keys=[...counts.keys()].sort((a,b)=>{const [da,ta]=a.split('\u0000'),[db,tb]=b.split('\u0000');return da.localeCompare(db)||typeSort(ta,tb)});$('statsBody').innerHTML=keys.map(k=>{const [id,t]=k.split('\u0000');const e=rows.find(e=>e.doctor_id===id);return `<tr><td>${doctorChip(e)}</td><td>${escapeHTML(t)}</td><td class="number">${counts.get(k)}</td></tr>`}).join('')||'<tr><td colspan="3" class="empty-row">此篩選條件沒有會議</td></tr>';$('statsCount').textContent=`共 ${rows.length} 場，${new Set(rows.map(e=>e.doctor_id)).size} 位醫師`}
+function showTab(tab){for(const b of document.querySelectorAll('[data-tab]')){const active=b.dataset.tab===tab;b.setAttribute('aria-selected',String(active));b.tabIndex=active?0:-1;$('panel-'+b.dataset.tab).hidden=!active}if(tab==='meetings')renderMeetings();if(tab==='doctors')renderDoctorStats()}
+for(const b of document.querySelectorAll('[data-tab]'))b.addEventListener('click',()=>showTab(b.dataset.tab));
+
 function render(){
  const month=$('month').value;const [y,m]=month.split('-').map(Number);
  const rows=schedule.meetings.filter(e=>e.date.slice(0,7)===month).sort((a,b)=>a.date.localeCompare(b.date));
@@ -52,8 +79,7 @@ function render(){
   typeCounts.set(t,(typeCounts.get(t)||0)+1);total.set(d,(total.get(d)||0)+1);
   if(t!=='行政會議'&&t!=='RRC會議')fair.set(d,(fair.get(d)||0)+1);
  }
- const types=[...new Set([...DEFAULT_ORDER,...(schedule.meeting_order||[]).map(normalize),...typeCounts.keys()])];
- types.sort((a,b)=>{const ai=DEFAULT_ORDER.indexOf(a),bi=DEFAULT_ORDER.indexOf(b);return (ai<0?999:ai)-(bi<0?999:bi)||a.localeCompare(b,'zh-Hant')});
+ const types=meetingTypes();
  $('typeBody').innerHTML=types.map(t=>`<tr><td>${escapeHTML(t)}</td><td class="number">${typeCounts.get(t)||0}</td></tr>`).join('');
  $('typeSummary').textContent=`本月共 ${rows.length} 場會議`;
  const doctorIds=[...new Set([...Object.keys(schedule.doctors||{}),...rows.map(e=>e.doctor_id)])];
@@ -72,7 +98,13 @@ fetch('./schedule.json',{cache:'no-store'}).then(r=>{if(!r.ok)throw Error(`HTTP 
  const months=[...new Set(data.meetings.map(e=>String(e.date).slice(0,7)))].sort();
  if(!months.length)throw Error('沒有可顯示的排程');
  $('month').innerHTML=months.map(m=>`<option value="${escapeHTML(m)}">${escapeHTML(m)}</option>`).join('');
- $('month').addEventListener('change',render);render();
+ $('month').addEventListener('change',render);
+ const typeOptions=['全部',...meetingTypes()];$('meetingType').innerHTML=typeOptions.map(t=>`<option value="${escapeHTML(t)}">${escapeHTML(t)}</option>`).join('');
+ for(const id of ['meetingMonth','statsMonth'])$(id).innerHTML=['全部',...months].map(m=>`<option value="${escapeHTML(m)}">${escapeHTML(m==='全部'?'全部月份':m)}</option>`).join('');
+ const ids=[...new Set([...Object.keys(schedule.doctors||{}),...schedule.meetings.map(e=>e.doctor_id)])].sort();
+ $('statsDoctor').innerHTML='<option value="全部">全部醫師</option>'+ids.map(d=>`<option value="${escapeHTML(d)}">${escapeHTML(schedule.doctors?.[d]||schedule.meetings.find(e=>e.doctor_id===d)?.doctor_name||d)}</option>`).join('');
+ $('meetingType').addEventListener('change',renderMeetings);$('meetingMonth').addEventListener('change',renderMeetings);$('statsDoctor').addEventListener('change',renderDoctorStats);$('statsMonth').addEventListener('change',renderDoctorStats);
+ render();renderMeetings();renderDoctorStats();
 }).catch(e=>{$('status').innerHTML=`<div class="error">無法讀取排程：${escapeHTML(e.message)}。請確認 index.html 與 schedule.json 位於同一個 Repository 根目錄，並透過 GitHub Pages 開啟。</div>`});
 </script>
 </body></html>
