@@ -19,7 +19,8 @@
     "併發症討論",
     "影像討論",
     "TransPRK教學",
-    "專題演講"
+    "專題演講",
+    "停會"
   ],
   "meeting_colors": {
     "病例/期刊論文討論": "#DCEBFF",
@@ -34,7 +35,8 @@
     "文獻討論": "#D5F5FA",
     "RRC會議": "#FFDEC4",
     "專題演講": "#FCE4EF",
-    "TransPRK教學": "#DDF4C7"
+    "TransPRK教學": "#DDF4C7",
+    "停會": "#6B7280"
   },
   "doctor_colors": {
     "A": "#7F1D1D",
@@ -328,9 +330,9 @@
     },
     {
       "date": "2027-02-04",
-      "type": "影像討論",
+      "type": "停會",
       "doctor_id": "C",
-      "doctor_name": "葉柏漢",
+      "doctor_name": "",
       "locked": false
     },
     {
@@ -345,14 +347,14 @@
       "type": "VS Research Meeting",
       "doctor_id": "A",
       "doctor_name": "周宏達",
-      "locked": false
+      "locked": true
     },
     {
       "date": "2027-02-18",
       "type": "TransPRK教學",
-      "doctor_id": "B",
-      "doctor_name": "陳佩穎",
-      "locked": false
+      "doctor_id": "D",
+      "doctor_name": "潘立岩",
+      "locked": true
     },
     {
       "date": "2027-02-23",
@@ -364,9 +366,9 @@
     {
       "date": "2027-02-24",
       "type": "VS Research Meeting",
-      "doctor_id": "G",
-      "doctor_name": "朱學彥",
-      "locked": false
+      "doctor_id": "E",
+      "doctor_name": "林睿彥",
+      "locked": true
     },
     {
       "date": "2027-02-25",
@@ -406,9 +408,9 @@
     {
       "date": "2027-03-10",
       "type": "VS Research Meeting",
-      "doctor_id": "E",
-      "doctor_name": "林睿彥",
-      "locked": false
+      "doctor_id": "B",
+      "doctor_name": "陳佩穎",
+      "locked": true
     },
     {
       "date": "2027-03-11",
@@ -511,9 +513,9 @@
     {
       "date": "2027-04-14",
       "type": "VS Research Meeting",
-      "doctor_id": "B",
-      "doctor_name": "陳佩穎",
-      "locked": false
+      "doctor_id": "C",
+      "doctor_name": "葉柏漢",
+      "locked": true
     },
     {
       "date": "2027-04-15",
@@ -553,9 +555,9 @@
     {
       "date": "2027-04-28",
       "type": "VS Research Meeting",
-      "doctor_id": "C",
-      "doctor_name": "葉柏漢",
-      "locked": false
+      "doctor_id": "F",
+      "doctor_name": "陳彥廷",
+      "locked": true
     },
     {
       "date": "2027-04-29",
@@ -595,9 +597,9 @@
     {
       "date": "2027-05-12",
       "type": "VS Research Meeting",
-      "doctor_id": "F",
-      "doctor_name": "陳彥廷",
-      "locked": false
+      "doctor_id": "G",
+      "doctor_name": "朱學彥",
+      "locked": true
     },
     {
       "date": "2027-05-13",
@@ -639,7 +641,7 @@
       "type": "VS Research Meeting",
       "doctor_id": "A",
       "doctor_name": "周宏達",
-      "locked": false
+      "locked": true
     },
     {
       "date": "2027-05-27",
@@ -679,9 +681,9 @@
     {
       "date": "2027-06-09",
       "type": "VS Research Meeting",
-      "doctor_id": "C",
-      "doctor_name": "葉柏漢",
-      "locked": false
+      "doctor_id": "E",
+      "doctor_name": "林睿彥",
+      "locked": true
     },
     {
       "date": "2027-06-10",
@@ -721,9 +723,9 @@
     {
       "date": "2027-06-23",
       "type": "VS Research Meeting",
-      "doctor_id": "D",
-      "doctor_name": "潘立岩",
-      "locked": false
+      "doctor_id": "B",
+      "doctor_name": "陳佩穎",
+      "locked": true
     },
     {
       "date": "2027-06-24",
