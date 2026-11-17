@@ -10,6 +10,7 @@
 main{max-width:1500px;margin:auto;padding:26px 22px 50px}header{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:16px;margin-bottom:18px}h1{font-size:clamp(22px,3vw,30px);margin:0}h2{font-size:17px;margin:0 0 14px}.sub{color:var(--muted);font-size:13px;margin:3px 0 0}.controls{display:flex;align-items:center;gap:10px}select{background:#273449;color:#fff;border:1px solid #607087;border-radius:8px;padding:10px 14px;font-size:15px;min-width:145px}section{background:var(--panel);border:1px solid var(--line);border-radius:14px;padding:18px;margin-bottom:18px;min-width:0}.scroll{overflow-x:auto}table{border-collapse:separate;border-spacing:0;width:100%;font-size:14px}th,td{border-bottom:1px solid var(--line);padding:11px 12px;text-align:left}th{font-weight:650;color:#e5e7eb;background:#2b3748}tr:last-child td{border-bottom:0}.calendar{table-layout:fixed;min-width:620px}.calendar th:first-child{width:95px}.calendar td{height:115px;vertical-align:top;border-right:1px solid var(--line)}.calendar td:last-child{border-right:0}.calendar .week{color:#d1d5db;font-weight:650;vertical-align:middle;background:#253142}.date{font-size:12px;color:#cbd5e1;margin-bottom:8px}.meeting{padding:10px;border-radius:8px;color:#111827;min-height:74px;overflow-wrap:anywhere}.meeting-title{font-weight:700;font-size:13px}.doctor{display:inline-block;margin-top:7px;padding:2px 7px;border-radius:5px;color:#fff;font-size:12px;font-weight:700}.empty{color:#64748b}.stats{display:grid;grid-template-columns:1fr 1fr;gap:18px}.stats section{margin:0}.number{text-align:right;font-variant-numeric:tabular-nums}.name-chip{display:inline-block;padding:3px 8px;border-radius:6px;font-weight:650;color:#fff}.summary{font-size:13px;color:var(--muted);margin-top:12px}.error{padding:14px;background:#4b2525;border:1px solid #a65c5c;border-radius:8px}.legend{color:var(--muted);font-size:12px;margin-top:8px}@media(max-width:780px){main{padding:16px 12px}.stats{grid-template-columns:1fr}section{padding:13px}.calendar td{padding:8px}.calendar th:first-child{width:70px}}
 
 .tabs{display:flex;gap:8px;flex-wrap:wrap;margin:16px 0}.tab{background:#273449;border:1px solid #4b607a;color:#e5e7eb;padding:10px 17px;border-radius:9px;font-weight:650;cursor:pointer}.tab[aria-selected="true"]{background:#2563eb;border-color:#60a5fa;color:#fff}.tab:focus-visible{outline:3px solid #93c5fd}.panel[hidden]{display:none!important}.filterbar{display:flex;gap:14px;flex-wrap:wrap;align-items:center;margin-bottom:16px}.filterbar label{display:flex;align-items:center;gap:8px}.filtered-note{color:var(--muted);font-size:13px;margin:10px 0}.empty-row{text-align:center;color:var(--muted)}
+.stats-subtotal td{background:#273449;border-top:1px solid #64748b}.stats-grandtotal td{background:#334155;border-top:2px solid #94a3b8}
 </style>
 </head>
 <body><main>
@@ -31,7 +32,7 @@ main{max-width:1500px;margin:auto;padding:26px 22px 50px}header{display:flex;jus
 </div>
 <div class="panel" id="panel-doctors" role="tabpanel" aria-labelledby="tab-doctors" hidden>
 <section><h2>醫師統計</h2><div class="filterbar"><label for="statsDoctor">醫師 <select id="statsDoctor"></select></label><label for="statsMonth">統計期間 <select id="statsMonth"></select></label></div>
-<p class="filtered-note" id="statsCount"></p><div class="scroll"><table><thead><tr><th>醫師姓名</th><th>會議種類</th><th class="number">場次</th></tr></thead><tbody id="statsBody"></tbody></table></div><p class="summary">行政會議及 RRC 仍列入各類會議統計，但不計入平均分配計數。</p></section>
+<p class="filtered-note" id="statsCount"></p><div class="scroll"><table><thead><tr><th>醫師姓名</th><th>會議種類</th><th class="number">場次</th><th class="number">平均分配合計</th></tr></thead><tbody id="statsBody"></tbody></table></div><p class="summary">平均分配合計不包含行政會議、RRC 會議及停會。</p></section>
 </div>
 </main>
 <script>
@@ -51,7 +52,30 @@ function typeSort(a,b){const ai=DEFAULT_ORDER.indexOf(a),bi=DEFAULT_ORDER.indexO
 function nameOf(e){return schedule.doctors?.[e.doctor_id]||e.doctor_name||e.doctor_id||''}
 function doctorChip(e){if(!isActive(e))return '—';const c=safeColor(schedule.doctor_colors?.[e.doctor_id],'#334155');return `<span class="name-chip" style="background:${c}">${escapeHTML(nameOf(e))}</span>`}
 function renderMeetings(){const t=$('meetingType').value,m=$('meetingMonth').value;const rows=schedule.meetings.filter(e=>(t==='全部'||normalize(e.type)===t)&&(m==='全部'||e.date.startsWith(m))).sort((a,b)=>a.date.localeCompare(b.date));$('meetingCount').textContent=`共 ${rows.length} 場`; $('meetingListBody').innerHTML=rows.map(e=>`<tr><td>${escapeHTML(e.date)}</td><td>${escapeHTML(normalize(e.type))}</td><td>${doctorChip(e)}</td></tr>`).join('')||'<tr><td colspan="3" class="empty-row">此篩選條件沒有會議</td></tr>'}
-function renderDoctorStats(){const d=$('statsDoctor').value,m=$('statsMonth').value;const rows=schedule.meetings.filter(e=>isActive(e)&&(d==='全部'||e.doctor_id===d)&&(m==='全部'||e.date.startsWith(m)));const counts=new Map();for(const e of rows){const key=e.doctor_id+'\u0000'+normalize(e.type);counts.set(key,(counts.get(key)||0)+1)}const doctors=Object.keys(schedule.doctors||{}).concat(schedule.meetings.filter(isActive).map(e=>e.doctor_id)).filter((v,i,a)=>a.indexOf(v)===i).sort();const keys=[...counts.keys()].sort((a,b)=>{const [da,ta]=a.split('\u0000'),[db,tb]=b.split('\u0000');return da.localeCompare(db)||typeSort(ta,tb)});$('statsBody').innerHTML=keys.map(k=>{const [id,t]=k.split('\u0000');const e=rows.find(e=>e.doctor_id===id);return `<tr><td>${doctorChip(e)}</td><td>${escapeHTML(t)}</td><td class="number">${counts.get(k)}</td></tr>`}).join('')||'<tr><td colspan="3" class="empty-row">此篩選條件沒有會議</td></tr>';$('statsCount').textContent=`共 ${rows.length} 場，${new Set(rows.map(e=>e.doctor_id)).size} 位醫師`}
+function renderDoctorStats(){
+ const selected=$('statsDoctor').value,month=$('statsMonth').value;
+ const rows=schedule.meetings.filter(e=>isActive(e)&&(selected==='全部'||e.doctor_id===selected)&&(month==='全部'||e.date.startsWith(month)));
+ const doctorIds=selected==='全部'?[...new Set([...Object.keys(schedule.doctors||{}),...rows.map(e=>e.doctor_id)])].sort():[selected];
+ const excluded=new Set(['RRC會議','行政會議']);
+ let html='',grandTotal=0,grandFair=0;
+ for(const id of doctorIds){
+  const doctorRows=rows.filter(e=>e.doctor_id===id);
+  const types=new Map();
+  for(const e of doctorRows){const t=normalize(e.type);types.set(t,(types.get(t)||0)+1)}
+  const fair=doctorRows.filter(e=>!excluded.has(normalize(e.type))).length;
+  grandTotal+=doctorRows.length;grandFair+=fair;
+  const color=safeColor(schedule.doctor_colors?.[id],'#334155');
+  const name=schedule.doctors?.[id]||doctorRows[0]?.doctor_name||id;
+  const chip=`<span class="name-chip" style="background:${color}">${escapeHTML(name)}</span>`;
+  for(const [type,count] of [...types.entries()].sort((a,b)=>typeSort(a[0],b[0]))){
+   html+=`<tr><td>${chip}</td><td>${escapeHTML(type)}</td><td class="number">${count}</td><td class="number">—</td></tr>`;
+  }
+  html+=`<tr class="stats-subtotal"><td>${chip}</td><td><strong>小計（扣除 RRC、行政）</strong></td><td class="number"><strong>${doctorRows.length}</strong></td><td class="number"><strong>${fair}</strong></td></tr>`;
+ }
+ if(selected==='全部')html+=`<tr class="stats-grandtotal"><td><strong>所有醫師合計</strong></td><td>扣除 RRC、行政</td><td class="number"><strong>${grandTotal}</strong></td><td class="number"><strong>${grandFair}</strong></td></tr>`;
+ $('statsBody').innerHTML=html||'<tr><td colspan="4" class="empty-row">此篩選條件沒有會議</td></tr>';
+ $('statsCount').textContent=`全部場次 ${grandTotal} 場；扣除 RRC、行政後 ${grandFair} 場；${new Set(rows.map(e=>e.doctor_id)).size} 位醫師`;
+}
 function showTab(tab){for(const b of document.querySelectorAll('[data-tab]')){const active=b.dataset.tab===tab;b.setAttribute('aria-selected',String(active));b.tabIndex=active?0:-1;$('panel-'+b.dataset.tab).hidden=!active}if(tab==='meetings')renderMeetings();if(tab==='doctors')renderDoctorStats()}
 for(const b of document.querySelectorAll('[data-tab]'))b.addEventListener('click',()=>showTab(b.dataset.tab));
 
