@@ -24,7 +24,7 @@ main{max-width:1500px;margin:auto;padding:26px 22px 50px}header{display:flex;jus
 <div class="panel" id="panel-calendar" role="tabpanel" aria-labelledby="tab-calendar">
 <div class="filterbar"><label for="month">月份 <select id="month" aria-label="行事曆月份"></select></label></div>
 <section aria-label="每週行事曆"><h2>每週晨會行事曆</h2><div class="scroll"><table class="calendar"><thead><tr><th>週次</th><th>星期二</th><th>星期三</th><th>星期四</th></tr></thead><tbody id="calendarBody"></tbody></table></div><div class="legend">會議與醫師顏色沿用 Python 排程設定。</div></section>
-<div class="stats"><section><h2>本月各會議數量</h2><div class="scroll"><table><thead><tr><th>會議種類</th><th class="number">場次</th></tr></thead><tbody id="typeBody"></tbody></table></div><p class="summary" id="typeSummary"></p></section><section><h2>本月各醫師場次</h2><div class="scroll"><table><thead><tr><th>醫師姓名</th><th class="number">全部場次</th><th class="number">平均分配計數</th></tr></thead><tbody id="doctorBody"></tbody></table></div><p class="summary">平均分配計數不含行政會議及 RRC 會議。</p></section></div>
+<div class="stats"><section><h2>本月各會議數量</h2><div class="scroll"><table><thead><tr><th>會議種類</th><th class="number">場次</th></tr></thead><tbody id="typeBody"></tbody></table></div><p class="summary" id="typeSummary"></p></section><section><h2>本月各醫師場次</h2><div class="scroll"><table><thead><tr><th>醫師姓名</th><th class="number">全部場次</th><th class="number">平均分配計數</th></tr></thead><tbody id="doctorBody"></tbody></table></div><p class="summary">平均分配計數不含科事務會議及 RRC 會議。</p></section></div>
 </div>
 <div class="panel" id="panel-meetings" role="tabpanel" aria-labelledby="tab-meetings" hidden>
 <section><h2>會議清單</h2><div class="filterbar"><label for="meetingType">會議種類 <select id="meetingType"></select></label><label for="meetingMonth">月份 <select id="meetingMonth"></select></label></div>
@@ -32,14 +32,14 @@ main{max-width:1500px;margin:auto;padding:26px 22px 50px}header{display:flex;jus
 </div>
 <div class="panel" id="panel-doctors" role="tabpanel" aria-labelledby="tab-doctors" hidden>
 <section><h2>醫師統計</h2><div class="filterbar"><label for="statsDoctor">醫師 <select id="statsDoctor"></select></label><label for="statsMonth">統計期間 <select id="statsMonth"></select></label></div>
-<p class="filtered-note" id="statsCount"></p><div class="scroll"><table><thead><tr><th>醫師姓名</th><th>會議種類</th><th class="number">場次</th><th class="number">平均分配合計</th></tr></thead><tbody id="statsBody"></tbody></table></div><p class="summary">平均分配合計不包含行政會議、RRC 會議及停會。</p></section>
+<p class="filtered-note" id="statsCount"></p><div class="scroll"><table><thead><tr><th>醫師姓名</th><th>會議種類</th><th class="number">場次</th><th class="number">平均分配合計</th></tr></thead><tbody id="statsBody"></tbody></table></div><p class="summary">平均分配合計不包含科事務會議、RRC 會議及停會。</p></section>
 </div>
 </main>
 <script>
 'use strict';
-const DEFAULT_ORDER=['RRC會議','行政會議','VS Research Meeting','病例/期刊論文討論','併發症討論','影像討論','TransPRK教學','專題演講'];
-const MERGED=new Set(['病例討論','臨床病例討論','臨床教學','文獻討論','核心課程']);
-const normalize=t=>MERGED.has(t)?'病例/期刊論文討論':t;
+const DEFAULT_ORDER=['科事務會議','RRC會議','影像討論','VS research meeting','綜合大會','Case & Clinical pearls','Video','TransPRK教學','專題演講','停會'];
+const OLD_CASE_TYPES=new Set(['病例討論','臨床病例討論','臨床教學','文獻討論','核心課程','病例/期刊論文討論']);
+const normalize=t=>OLD_CASE_TYPES.has(t)?'Video':({'科事務會議':'科事務會議','併發症討論':'綜合大會','VS Research Meeting':'VS research meeting'}[t]||t);
 const isActive=e=>e&&normalize(e.type)!=='停會'&&e.doctor_id!==null&&e.doctor_id!==undefined&&e.doctor_id!=='';
 const escapeHTML=v=>String(v??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
 const safeColor=(v,fallback)=>typeof v==='string'&&/^#[0-9a-fA-F]{3,8}$/.test(v)?v:fallback;
@@ -51,12 +51,12 @@ const meetingTypes=()=>[...new Set([...DEFAULT_ORDER,...(schedule.meeting_order|
 function typeSort(a,b){const ai=DEFAULT_ORDER.indexOf(a),bi=DEFAULT_ORDER.indexOf(b);return (ai<0?999:ai)-(bi<0?999:bi)||a.localeCompare(b,'zh-Hant')}
 function nameOf(e){return schedule.doctors?.[e.doctor_id]||e.doctor_name||e.doctor_id||''}
 function doctorChip(e){if(!isActive(e))return '—';const c=safeColor(schedule.doctor_colors?.[e.doctor_id],'#334155');return `<span class="name-chip" style="background:${c}">${escapeHTML(nameOf(e))}</span>`}
-function renderMeetings(){const t=$('meetingType').value,m=$('meetingMonth').value;const rows=schedule.meetings.filter(e=>(t==='全部'||normalize(e.type)===t)&&(m==='全部'||e.date.startsWith(m))).sort((a,b)=>a.date.localeCompare(b.date));$('meetingCount').textContent=`共 ${rows.length} 場`; $('meetingListBody').innerHTML=rows.map(e=>`<tr><td>${escapeHTML(e.date)}</td><td>${escapeHTML(normalize(e.type))}</td><td>${doctorChip(e)}</td></tr>`).join('')||'<tr><td colspan="3" class="empty-row">此篩選條件沒有會議</td></tr>'}
+function renderMeetings(){const t=$('meetingType').value,m=$('meetingMonth').value;const rows=schedule.meetings.filter(e=>(t==='全部'||normalize(e.type)===t)&&(m==='全部'||e.date.startsWith(m))).sort((a,b)=>a.date.localeCompare(b.date));$('meetingCount').textContent=`共 ${rows.filter(isActive).length} 場`; $('meetingListBody').innerHTML=rows.map(e=>`<tr><td>${escapeHTML(e.date)}</td><td>${escapeHTML(normalize(e.type))}</td><td>${doctorChip(e)}</td></tr>`).join('')||'<tr><td colspan="3" class="empty-row">此篩選條件沒有會議</td></tr>'}
 function renderDoctorStats(){
  const selected=$('statsDoctor').value,month=$('statsMonth').value;
  const rows=schedule.meetings.filter(e=>isActive(e)&&(selected==='全部'||e.doctor_id===selected)&&(month==='全部'||e.date.startsWith(month)));
- const doctorIds=selected==='全部'?[...new Set([...Object.keys(schedule.doctors||{}),...rows.map(e=>e.doctor_id)])].sort():[selected];
- const excluded=new Set(['RRC會議','行政會議']);
+ const doctorIds=selected==='全部'?[...new Set([...Object.keys(schedule.doctors||{}),...rows.filter(isActive).map(e=>e.doctor_id)])].sort():[selected];
+ const excluded=new Set(['RRC會議','科事務會議']);
  let html='',grandTotal=0,grandFair=0;
  for(const id of doctorIds){
   const doctorRows=rows.filter(e=>e.doctor_id===id);
@@ -70,11 +70,11 @@ function renderDoctorStats(){
   for(const [type,count] of [...types.entries()].sort((a,b)=>typeSort(a[0],b[0]))){
    html+=`<tr><td>${chip}</td><td>${escapeHTML(type)}</td><td class="number">${count}</td><td class="number">—</td></tr>`;
   }
-  html+=`<tr class="stats-subtotal"><td>${chip}</td><td><strong>小計（扣除 RRC、行政）</strong></td><td class="number"><strong>${doctorRows.length}</strong></td><td class="number"><strong>${fair}</strong></td></tr>`;
+  html+=`<tr class="stats-subtotal"><td>${chip}</td><td><strong>小計（扣除 RRC、科事務）</strong></td><td class="number"><strong>${doctorRows.length}</strong></td><td class="number"><strong>${fair}</strong></td></tr>`;
  }
- if(selected==='全部')html+=`<tr class="stats-grandtotal"><td><strong>所有醫師合計</strong></td><td>扣除 RRC、行政</td><td class="number"><strong>${grandTotal}</strong></td><td class="number"><strong>${grandFair}</strong></td></tr>`;
+ if(selected==='全部')html+=`<tr class="stats-grandtotal"><td><strong>所有醫師合計</strong></td><td>扣除 RRC、科事務</td><td class="number"><strong>${grandTotal}</strong></td><td class="number"><strong>${grandFair}</strong></td></tr>`;
  $('statsBody').innerHTML=html||'<tr><td colspan="4" class="empty-row">此篩選條件沒有會議</td></tr>';
- $('statsCount').textContent=`全部場次 ${grandTotal} 場；扣除 RRC、行政後 ${grandFair} 場；${new Set(rows.map(e=>e.doctor_id)).size} 位醫師`;
+ $('statsCount').textContent=`全部場次 ${grandTotal} 場；扣除 RRC、科事務後 ${grandFair} 場；${new Set(rows.map(e=>e.doctor_id)).size} 位醫師`;
 }
 function showTab(tab){for(const b of document.querySelectorAll('[data-tab]')){const active=b.dataset.tab===tab;b.setAttribute('aria-selected',String(active));b.tabIndex=active?0:-1;$('panel-'+b.dataset.tab).hidden=!active}if(tab==='meetings')renderMeetings();if(tab==='doctors')renderDoctorStats()}
 for(const b of document.querySelectorAll('[data-tab]'))b.addEventListener('click',()=>showTab(b.dataset.tab));
@@ -90,7 +90,7 @@ function render(){
    const cells=[1,2,3].map(offset=>{
      const day=monday+offset;if(day<1||day>lastDay)return '<td></td>';
      const key=dateKey(y,m,day),e=byDate.get(key);
-     if(!e)return `<td><div class="date">${pad(m)}-${pad(day)}</div><span class="empty">—</span></td>`;
+     if(!e)return `<td><div class="date">${pad(m)}-${pad(day)}</div><span class="empty">未排程</span></td>`;
      const t=normalize(e.type),name=e.doctor_name||schedule.doctors?.[e.doctor_id]||e.doctor_id||'';
      const bg=safeColor(schedule.meeting_colors?.[t]||schedule.meeting_colors?.[e.type],'#dbeafe');
      const doctorBg=safeColor(schedule.doctor_colors?.[e.doctor_id],'#334155');
@@ -102,8 +102,8 @@ function render(){
  $('calendarBody').innerHTML=calendar;
  const typeCounts=new Map();const total=new Map();const fair=new Map();
  for(const e of rows){const t=normalize(e.type),d=e.doctor_id;
-  typeCounts.set(t,(typeCounts.get(t)||0)+1);total.set(d,(total.get(d)||0)+1);
-  if(t!=='行政會議'&&t!=='RRC會議')fair.set(d,(fair.get(d)||0)+1);
+  typeCounts.set(t,(typeCounts.get(t)||0)+1);if(!isActive(e))continue;total.set(d,(total.get(d)||0)+1);
+  if(t!=='科事務會議'&&t!=='RRC會議')fair.set(d,(fair.get(d)||0)+1);
  }
  const types=meetingTypes();
  $('typeBody').innerHTML=types.map(t=>`<tr><td>${escapeHTML(t)}</td><td class="number">${typeCounts.get(t)||0}</td></tr>`).join('');
@@ -131,7 +131,7 @@ fetch('./schedule.json?v=fix2',{cache:'no-store'}).then(r=>{if(!r.ok)throw Error
  const typeOptions=['全部',...meetingTypes()];$('meetingType').innerHTML=typeOptions.map(t=>`<option value="${escapeHTML(t)}">${escapeHTML(t)}</option>`).join('');
  for(const id of ['meetingMonth','statsMonth'])$(id).innerHTML=['全部',...months].map(m=>`<option value="${escapeHTML(m)}">${escapeHTML(m==='全部'?'全部月份':m)}</option>`).join('');
  const ids=[...new Set([...Object.keys(schedule.doctors||{}),...schedule.meetings.filter(isActive).map(e=>e.doctor_id)])].sort();
- $('statsDoctor').innerHTML='<option value="全部">全部醫師</option>'+ids.map(d=>`<option value="${escapeHTML(d)}">${escapeHTML(schedule.doctors?.[d]||schedule.meetings.find(e=>e.doctor_id===d)?.doctor_name||d)}</option>`).join('');
+ $('statsDoctor').innerHTML='<option value="全部">全部醫師</option>'+ids.map(d=>`<option value="${escapeHTML(d)}">${escapeHTML(schedule.doctors?.[d]||schedule.meetings.find(e=>isActive(e)&&e.doctor_id===d)?.doctor_name||d)}</option>`).join('');
  $('meetingType').addEventListener('change',renderMeetings);$('meetingMonth').addEventListener('change',renderMeetings);$('statsDoctor').addEventListener('change',renderDoctorStats);$('statsMonth').addEventListener('change',renderDoctorStats);
  render();renderMeetings();renderDoctorStats();
 }).catch(e=>{console.error('晨會網站錯誤',e);$('status').innerHTML=`<div class="error">網站修正版 2 · 無法讀取排程：${escapeHTML(e.message)}<pre style="white-space:pre-wrap;font-size:12px">${escapeHTML(e.stack||'')}</pre></div>`;});
