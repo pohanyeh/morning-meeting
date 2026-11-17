@@ -19,7 +19,7 @@ main{max-width:1500px;margin:auto;padding:26px 22px 50px}header{display:flex;jus
 <button class="tab" id="tab-meetings" role="tab" aria-controls="panel-meetings" aria-selected="false" tabindex="-1" data-tab="meetings">會議清單</button>
 <button class="tab" id="tab-doctors" role="tab" aria-controls="panel-doctors" aria-selected="false" tabindex="-1" data-tab="doctors">醫師統計</button>
 </nav>
-<div id="status" class="sub" role="status">正在載入排程…</div>
+<div id="status" class="sub" role="status">正在載入排程…（網站修正版 2）</div>
 <div class="panel" id="panel-calendar" role="tabpanel" aria-labelledby="tab-calendar">
 <div class="filterbar"><label for="month">月份 <select id="month" aria-label="行事曆月份"></select></label></div>
 <section aria-label="每週行事曆"><h2>每週晨會行事曆</h2><div class="scroll"><table class="calendar"><thead><tr><th>週次</th><th>星期二</th><th>星期三</th><th>星期四</th></tr></thead><tbody id="calendarBody"></tbody></table></div><div class="legend">會議與醫師顏色沿用 Python 排程設定。</div></section>
@@ -94,10 +94,12 @@ function render(){
  }).join('');
  $('status').textContent=`${month} · 共 ${rows.filter(isActive).length} 場會議`;
 }
-fetch('./schedule.json',{cache:'no-store'}).then(r=>{if(!r.ok)throw Error(`HTTP ${r.status}：找不到 schedule.json`);return r.json()}).then(data=>{
+fetch('./schedule.json?v=fix2',{cache:'no-store'}).then(r=>{if(!r.ok)throw Error(`HTTP ${r.status}：找不到 schedule.json`);return r.json()}).then(data=>{
  if(!Array.isArray(data.meetings))throw Error('schedule.json 缺少 meetings 陣列');
  schedule=data;
-  schedule.meetings=schedule.meetings.filter(e=>e&&typeof e.date==='string'&&typeof e.type==='string');
+  schedule.meetings=schedule.meetings.filter(e=>e&&typeof e==='object'&&typeof e.date==='string'&&typeof e.type==='string');
+  schedule.meeting_order=Array.isArray(schedule.meeting_order)?schedule.meeting_order.filter(t=>typeof t==='string'):[];
+  schedule.doctors=(schedule.doctors&&typeof schedule.doctors==='object')?schedule.doctors:{};
  const months=[...new Set(data.meetings.filter(e=>e&&e.date).map(e=>String(e.date).slice(0,7)))].sort();
  if(!months.length)throw Error('沒有可顯示的排程');
  $('month').innerHTML=months.map(m=>`<option value="${escapeHTML(m)}">${escapeHTML(m)}</option>`).join('');
@@ -108,6 +110,6 @@ fetch('./schedule.json',{cache:'no-store'}).then(r=>{if(!r.ok)throw Error(`HTTP 
  $('statsDoctor').innerHTML='<option value="全部">全部醫師</option>'+ids.map(d=>`<option value="${escapeHTML(d)}">${escapeHTML(schedule.doctors?.[d]||schedule.meetings.find(e=>e.doctor_id===d)?.doctor_name||d)}</option>`).join('');
  $('meetingType').addEventListener('change',renderMeetings);$('meetingMonth').addEventListener('change',renderMeetings);$('statsDoctor').addEventListener('change',renderDoctorStats);$('statsMonth').addEventListener('change',renderDoctorStats);
  render();renderMeetings();renderDoctorStats();
-}).catch(e=>{$('status').innerHTML=`<div class="error">無法讀取排程：${escapeHTML(e.message)}。請確認 index.html 與 schedule.json 位於同一個 Repository 根目錄，並透過 GitHub Pages 開啟。</div>`});
+}).catch(e=>{console.error('晨會網站錯誤',e);$('status').innerHTML=`<div class="error">網站修正版 2 · 無法讀取排程：${escapeHTML(e.message)}<pre style="white-space:pre-wrap;font-size:12px">${escapeHTML(e.stack||'')}</pre></div>`;});
 </script>
 </body></html>
