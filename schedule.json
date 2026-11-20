@@ -3,7 +3,7 @@
   "version": 1,
   "doctors": {
     "A": "周宏達",
-    "B": "陳佩穎",
+    "B": "陳姵穎",
     "C": "葉柏漢",
     "D": "潘立岩",
     "E": "林睿彥",
@@ -184,7 +184,7 @@
       "date": "2026-12-15",
       "type": "Video",
       "doctor_id": "B",
-      "doctor_name": "陳佩穎",
+      "doctor_name": "陳姵穎",
       "locked": true
     },
     {
@@ -197,8 +197,8 @@
     {
       "date": "2026-12-17",
       "type": "VS research meeting",
-      "doctor_id": "C",
-      "doctor_name": "葉柏漢",
+      "doctor_id": "D",
+      "doctor_name": "潘立岩",
       "locked": true
     },
     {
@@ -219,14 +219,14 @@
       "date": "2026-12-23",
       "type": "RRC會議",
       "doctor_id": "B",
-      "doctor_name": "陳佩穎",
+      "doctor_name": "陳姵穎",
       "locked": true
     },
     {
       "date": "2026-12-24",
       "type": "VS research meeting",
-      "doctor_id": "D",
-      "doctor_name": "潘立岩",
+      "doctor_id": "C",
+      "doctor_name": "葉柏漢",
       "locked": true
     },
     {
@@ -279,10 +279,17 @@
       "locked": true
     },
     {
+      "date": "2027-01-08",
+      "type": "Video",
+      "doctor_id": "G",
+      "doctor_name": "朱學彥",
+      "locked": true
+    },
+    {
       "date": "2027-01-12",
       "type": "Video",
       "doctor_id": "B",
-      "doctor_name": "陳佩穎",
+      "doctor_name": "陳姵穎",
       "locked": true
     },
     {
@@ -304,13 +311,6 @@
       "type": "Video",
       "doctor_id": "C",
       "doctor_name": "葉柏漢",
-      "locked": true
-    },
-    {
-      "date": "2027-01-19",
-      "type": "Video",
-      "doctor_id": "G",
-      "doctor_name": "朱學彥",
       "locked": true
     },
     {
@@ -338,7 +338,7 @@
       "date": "2027-01-27",
       "type": "RRC會議",
       "doctor_id": "B",
-      "doctor_name": "陳佩穎",
+      "doctor_name": "陳姵穎",
       "locked": true
     },
     {
@@ -359,7 +359,7 @@
       "date": "2027-02-02",
       "type": "Video",
       "doctor_id": "B",
-      "doctor_name": "陳佩穎",
+      "doctor_name": "陳姵穎",
       "locked": true
     },
     {
@@ -401,7 +401,7 @@
       "date": "2027-02-16",
       "type": "Case & Clinical pearls",
       "doctor_id": "B",
-      "doctor_name": "陳佩穎",
+      "doctor_name": "陳姵穎",
       "locked": true
     },
     {
@@ -436,7 +436,7 @@
       "date": "2027-02-24",
       "type": "RRC會議",
       "doctor_id": "B",
-      "doctor_name": "陳佩穎",
+      "doctor_name": "陳姵穎",
       "locked": true
     },
     {
@@ -464,7 +464,7 @@
       "date": "2027-03-09",
       "type": "VS research meeting",
       "doctor_id": "B",
-      "doctor_name": "陳佩穎",
+      "doctor_name": "陳姵穎",
       "locked": true
     },
     {
@@ -473,6 +473,13 @@
       "doctor_id": "A",
       "doctor_name": "周宏達",
       "locked": true
+    },
+    {
+      "date": "2027-03-12",
+      "type": "Video",
+      "doctor_id": "B",
+      "doctor_name": "陳姵穎",
+      "locked": false
     },
     {
       "date": "2027-03-16",
@@ -496,17 +503,10 @@
       "locked": true
     },
     {
-      "date": "2027-03-19",
-      "type": "Video",
-      "doctor_id": "B",
-      "doctor_name": "陳佩穎",
-      "locked": true
-    },
-    {
       "date": "2027-03-23",
       "type": "RRC會議",
       "doctor_id": "B",
-      "doctor_name": "陳佩穎",
+      "doctor_name": "陳姵穎",
       "locked": true
     },
     {
@@ -576,7 +576,7 @@
       "date": "2027-04-13",
       "type": "Video",
       "doctor_id": "B",
-      "doctor_name": "陳佩穎",
+      "doctor_name": "陳姵穎",
       "locked": false
     },
     {
@@ -604,7 +604,7 @@
       "date": "2027-04-21",
       "type": "RRC會議",
       "doctor_id": "B",
-      "doctor_name": "陳佩穎",
+      "doctor_name": "陳姵穎",
       "locked": true
     },
     {
@@ -653,7 +653,7 @@
       "date": "2027-05-12",
       "type": "RRC會議",
       "doctor_id": "B",
-      "doctor_name": "陳佩穎",
+      "doctor_name": "陳姵穎",
       "locked": true
     },
     {
@@ -702,7 +702,7 @@
       "date": "2027-05-25",
       "type": "綜合大會",
       "doctor_id": "B",
-      "doctor_name": "陳佩穎",
+      "doctor_name": "陳姵穎",
       "locked": false
     },
     {
@@ -779,7 +779,7 @@
       "date": "2027-06-18",
       "type": "影像討論",
       "doctor_id": "B",
-      "doctor_name": "陳佩穎",
+      "doctor_name": "陳姵穎",
       "locked": false
     },
     {
@@ -793,7 +793,7 @@
       "date": "2027-06-23",
       "type": "RRC會議",
       "doctor_id": "B",
-      "doctor_name": "陳佩穎",
+      "doctor_name": "陳姵穎",
       "locked": true
     },
     {
@@ -807,7 +807,7 @@
       "date": "2027-06-29",
       "type": "VS research meeting",
       "doctor_id": "B",
-      "doctor_name": "陳佩穎",
+      "doctor_name": "陳姵穎",
       "locked": true
     },
     {
